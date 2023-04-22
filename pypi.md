@@ -1,7 +1,7 @@
 [TOP](./README.md)
 
 
-PyPI登録トライ時のメモ
+# PyPI登録トライ時のメモ
 
 参考：https://zenn.dev/sikkim/articles/490f4043230b5a
 
