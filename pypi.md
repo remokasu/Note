@@ -74,5 +74,75 @@ twine upload --repository pypi dist/*
 <br>
 <hr>
 
+## バージョンの表記、バージョンアップの簡易ガイドライン
+例）Version 1.0.0<br>
+この数値は、左から メジャーバージョン.マイナーバージョン.パッチバージョン
+
+- メジャーバージョン
+重要な変更や大規模なアップデートがある場合に上昇。過去のバージョンとの互換性がないことが多い。
+
+- マイナーバージョン
+小さな機能追加や改良が行われた場合に上昇。通常、過去のバージョンとの互換性がある。
+
+- パッチバージョン
+バグ修正などの小さな変更が行われた場合に上昇。通常、過去のバージョンとの互換性がある。
+
+<br>
+<hr>
+
+## setup.py
+Stackerのsetup.pyはこんな感じで、見様見真似。正直どのような書き方が最適なのかは分からない。
+
+### 重要
+* version が以前PyPIに登録したものと同じであるとき、PyPIアップロードに失敗するっぽい
+* README.mdの内容をPyPIのパッケージのトップページに表示させたいとき、`long_description_content_type='text/markdown'` を設定しないと内容が表示されない。つまりMarkdown形式ファイルの内容をトップに表示させるなら必須
+* モジュール内で、他のディレクトリを参照するときは `package_data={'stacker': ['data/*', 'plugins/*']}` のように、モジュールからの相対パスで指定する。<br>
+モジュール本体でも変更必要。→ `Stacker`のプログラムをみて思い出せ
+* 起動方法 <br>
+`python -m <package_name>` ではなく、ターミナルで`<package_name>`だけで起動させるには`entry_points`を指定する
+
+~~~python
+from codecs import open
+from os import path
+
+from setuptools import find_packages, setup
+
+here = path.abspath(path.dirname(__file__))
+
+with open('README.md', 'r', encoding='utf-8') as f:
+    long_description = f.read()
+
+with open('LICENSE', 'r', encoding='utf-8') as f:
+    license = f.read()
+
+
+with open('requirements.txt', 'r', encoding='utf-8') as f:
+    install_requires = f.read()
+
+setup(
+    author='remokasu',
+    name="pystacker",
+    version="1.2.0",
+    license=license,
+    url='https://github.com/remokasu/stacker',
+    install_requires=install_requires,
+    packages=find_packages(),
+    package_data={'stacker': ['data/*', 'plugins/*']},
+    description='Stacker: RPN Calculator in Python',
+    long_description=long_description,
+    long_description_content_type='text/markdown',
+    keywords='reverse-polish-calculator rpn terminal-app',
+    entry_points={
+        "console_scripts": [
+            "stacker = stacker.stacker:main",
+        ],
+    },
+)
+~~~
+
+
+<br>
+<hr>
+
 ## その他
 PyPIの読み方、僕は`パイパイ`派なんですけど、世間的にはいろいろ読み方の派閥があるっぽい。
