@@ -51,6 +51,15 @@ https://pypi.org/project/pystacker/
 
 <hr>
 
+## plugins
+* 単位変換プラグインを作成．コマンドが少々使いにくい．
+    ~~~ bash
+    > m/s 10 km/h
+    ~~~
+* 一部のシェルコマンドを実行できるプラグインを追加．<br>
+何を目指しているのやら．
+
+
 ## その他
 * `stacker`の名前は既に使用されており、不服ながら登録名は`pystacker`に。パッケージ名は`stacker`のまま。
 
