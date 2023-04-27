@@ -52,13 +52,33 @@ https://pypi.org/project/pystacker/
 <hr>
 
 ## plugins
+本体とは別に更新していくスタイルで．<br>
+(https://github.com/remokasu/stacker-plugins)
+
 * 単位変換プラグインを作成．コマンドが少々使いにくい．
     ~~~ bash
-    > m/s 10 km/h
+    > m/s 10 km/h cu
     ~~~
-* 一部のシェルコマンドを実行できるプラグインを追加．<br>
-何を目指しているのやら．
+    cu: convert unit
 
+* 一部のシェルコマンドを実行できるプラグインを追加．<br>
+何を目指しているのやら？？？
+
+* 行列演算 -> stacker本体の入力と表示を改善しないと使い物にならない．<br>
+
+
+<hr>
+
+## Traffic
+* 2023 04/14 ~ 04/27
+    * 146 Clones (Thank You! ❤️)
+    * 43 Unique cloners (Thank You! ❤️❤️❤️)
+    * 792 Views
+    * 4 Unique visitors
+
+    ~~スターも欲しい~~
+
+<hr>
 
 ## その他
 * `stacker`の名前は既に使用されており、不服ながら登録名は`pystacker`に。パッケージ名は`stacker`のまま。
@@ -67,3 +87,5 @@ https://pypi.org/project/pystacker/
 そもそもRPNで代入とはいつたい?<br>
 かといって、`2 x =`という記述はキモすぎるが.<br>
 `2 x assign` とかにするか...?
+
+* プラグインとかやっているうちに，ちょっと発散してきた．一度仕様を整理する．
