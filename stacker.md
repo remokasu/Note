@@ -29,6 +29,8 @@ https://pypi.org/project/pystacker/
             ^
     SyntaxError: invalid syntax. Perhaps you forgot a comma?
     ~~~
+- 出力の色はユーザーが変えられるように
+- プラグインのインストール方法を簡単に -> プラグインインストールコマンド
 - スクリプトファイルの実行(簡易的なものは実装済み)
 - 分岐とループ
 
